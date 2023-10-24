@@ -1,0 +1,17 @@
+<%- include('includes/head'); %>
+  <%- include('includes/nav'); %>
+  <form class="container my-5">
+    <div class="mb-3">
+      <label for="inputEmail" class="form-label">Email</label>
+      <input type="email" class="form-control" id="inputEmail" placeholder="Digite seu email">
+    </div>
+    <div class="mb-3">
+      <label for="inputPassword" class="form-label">Senha</label>
+      <input type="password" class="form-control" id="inputPassword" placeholder="Digite sua senha">
+    </div>
+    <div class="d-flex">
+      <button type="submit" class="btn btn-primary">Entrar</button>
+      <div class="form-text ms-auto">Não tem conta? <a class="link-offset-2 link-underline link-underline-opacity-10" href="/register">Cadastre-se</a>.</div>
+    </div>
+  </form>
+<%- include('includes/footer'); %>
