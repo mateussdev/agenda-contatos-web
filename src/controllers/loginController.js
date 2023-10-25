@@ -1,7 +1,7 @@
-exports.login = (req, res) => {
-  res.render('login');
+exports.index = (req, res) => {
+  return res.render('login');
 };
 
-exports.register = (req, res) => {
-  res.render('register');
-}
+exports.login = (req, res) => {
+  res.send(req.body);
+};
