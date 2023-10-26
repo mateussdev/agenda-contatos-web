@@ -3,5 +3,5 @@ exports.index = (req, res) => {
 };
 
 exports.login = (req, res) => {
-  res.send(req.body);
+  
 };

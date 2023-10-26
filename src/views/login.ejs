@@ -1,16 +1,19 @@
 <%- include('includes/head'); %>
   <%- include('includes/nav'); %>
+
+  <%- include('includes/messages'); %>
+
   <form action="/login/in" method="POST" class="container my-5">
     <input type="hidden" name="_csrf" value="<%= csrfToken %>">
     <div class="mb-3">
       <label for="inputEmail" class="form-label">Email</label>
-      <input type="email" class="form-control" id="inputEmail" placeholder="Digite seu email">
+      <input type="email" class="form-control" name="email" id="inputEmail" placeholder="Digite seu email">
     </div>
     <div class="mb-3">
       <label for="inputPassword" class="form-label">Senha</label>
-      <input type="password" class="form-control" id="inputPassword" placeholder="Digite sua senha">
+      <input type="password" class="form-control" name="password" id="inputPassword" placeholder="Digite sua senha">
     </div>
-    <div class="d-flex">
+    <div class="d-flex align-items-center">
       <button type="submit" class="btn btn-primary">Entrar</button>
       <div class="form-text ms-auto">Não tem conta? <a class="link-offset-2 link-underline link-underline-opacity-10" href="/register">Cadastre-se</a>.</div>
     </div>
