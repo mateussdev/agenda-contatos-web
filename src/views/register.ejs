@@ -3,16 +3,19 @@
 
   <%- include('includes/messages'); %>
 
-  <form action="/register/registed" method="POST" class="container my-5">
-    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-    <div class="mb-3">
-      <label for="inputEmail" class="form-label">Email</label>
-      <input type="email" class="form-control" name="email" id="inputEmail" placeholder="Digite seu email">
-    </div>
-    <div class="mb-3">
-      <label for="inputPassword" class="form-label">Senha</label>
-      <input type="password" class="form-control" name="password" id="inputPassword" placeholder="Digite sua senha">
-    </div>
-    <button type="submit" class="btn btn-primary">Cadastrar</button>
-  </form>
+  <div class="w-75 mx-auto d-flex flex-column justify-content-center align-items-center">
+    <form action="/register/registed" method="POST" class="container my-5">
+      <h1 class="text-center my-3">Faça seu cadastro</h1>
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+      <div class="mb-3">
+        <label for="inputEmail" class="form-label">Email</label>
+        <input type="email" class="form-control" name="email" id="inputEmail" placeholder="Digite seu email">
+      </div>
+      <div class="mb-3">
+        <label for="inputPassword" class="form-label">Senha</label>
+        <input type="password" class="form-control" name="password" id="inputPassword" placeholder="Digite sua senha">
+      </div>
+      <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+  </div>
 <%- include('includes/footer'); %>
