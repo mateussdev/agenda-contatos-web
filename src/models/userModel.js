@@ -2,18 +2,35 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 const bcryptjs = require('bcryptjs');
 
-const RegisterSchema = new mongoose.Schema({
+const UserSchema = new mongoose.Schema({
   email: { type: String, required: true },
-  password: { type: String, requireds: true }
+  password: { type: String, required: true }
 });
 
-const RegisterModel = mongoose.model('Register', RegisterSchema);
+const UserModel = mongoose.model('User', UserSchema);
 
-class Register {
+class User {
   constructor(body) {
     this.body = body;
     this.errors = [];
     this.user = null;
+  }
+
+  async login() {
+    this.validateFields();
+    if(this.errors.length > 0) return;
+    this.user = await UserModel.findOne({ email: this.body.email });
+
+    if(!this.user) {
+      this.errors.push('Usuário não existe.');
+      return;
+    }
+
+    if(!bcryptjs.compareSync(this.body.password, this.user.password)) {
+      this.errors.push('Senha inválida.');
+      this.user = null;
+      return;
+    }
   }
 
   async register() {
@@ -26,11 +43,11 @@ class Register {
     const salt = bcryptjs.genSaltSync();
     this.body.password = bcryptjs.hashSync(this.body.password, salt);
 
-    this.user = await RegisterModel.create(this.body);
+    this.user = await UserModel.create(this.body);
   }
 
   async userExists() {
-    this.user = await RegisterModel.findOne({ email: this.body.email });
+    this.user = await UserModel.findOne({ email: this.body.email });
     if(this.user) this.errors.push('Este usuário já existe.')
   }
 
@@ -56,4 +73,4 @@ class Register {
   }
 }
 
-module.exports = Register;
+module.exports = User;
