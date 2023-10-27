@@ -2,9 +2,9 @@
   <%- include('includes/nav'); %>
 
   <%- include('includes/messages'); %>
-  <div class="w-75 mx-auto d-flex flex-column justify-content-center align-items-center">
-    <form action="/login/in" method="POST" class="container-fluid my-5">
-      <h1 class="text-center my-3">Faça seu login</h1>
+  <div class="mx-auto d-flex flex-column justify-content-center align-items-center">
+    <form action="/login/in" method="POST" class="container">
+      <h1 class="text-center">Faça seu login</h1>
       <input type="hidden" name="_csrf" value="<%= csrfToken %>">
       <div class="mb-3">
         <label for="inputEmail" class="form-label">Email</label>
