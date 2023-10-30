@@ -5,6 +5,30 @@
     <%- include('includes/messages'); %>
 
     <h1>Contatos</h1>
-    <p class="lead">Ainda não há contatos.</p>
+    <!-- <p class="lead">Ainda não há contatos.</p> -->
+
+
+    <div class="container">
+      <table class="table">
+        <a style="width: 200px;" class="d-flex justify-content-start btn btn-primary my-3" href="/contact/register">Adicionar novo contato</a>
+        <thead>
+          <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Sobrenome</th>
+            <th scope="col">Telefone</th>
+            <th scope="col">E-mail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Mateus</th>
+            <td>Silva</td>
+            <td>(88) 9 9999-8888</td>
+            <td>mateus@dev.com</td>
+          </tr>
+      
+        </tbody>
+      </table>
+    </div>
   </div>
 <%- include('includes/footer'); %>

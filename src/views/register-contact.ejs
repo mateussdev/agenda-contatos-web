@@ -1,0 +1,34 @@
+<%- include('includes/head'); %>
+  <%- include('includes/nav'); %>
+
+  <%- include('includes/messages'); %>
+  <div class="mx-auto d-flex flex-column justify-content-center align-items-center">
+    <form action="/login/in" method="POST" class="container">
+      <h1 class="text-center">Novo contato</h1>
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+      <div class="mb-3">
+        <label for="inputName" class="form-label">Nome</label>
+        <input type="text" class="form-control" name="name" id="inputName" placeholder="Digite seu nome">
+      </div>
+
+      <div class="mb-3">
+        <label for="inputLastname" class="form-label">Sobrenome</label>
+        <input type="text" class="form-control" name="lastname" id="inputLastname" placeholder="Digite seu sobrenome">
+      </div>
+
+      <div class="mb-3">
+        <label for="inputTel" class="form-label">Telefone</label>
+        <input type="tel" class="form-control" name="tel" id="inputTel" placeholder="Digite seu telefone">
+      </div>
+
+      <div class="mb-3">
+        <label for="inputEmail" class="form-label">E-mail</label>
+        <input type="email" class="form-control" name="email" id="inputEmail" placeholder="Digite seu e-mail">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Salvar</button>
+
+    </form>
+  </div>
+<%- include('includes/footer'); %>

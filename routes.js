@@ -15,5 +15,6 @@ route.post('/register/registed', registerController.register);
 route.get('/logout', loginController.logout);
 
 route.get('/contact', contactController.index);
+route.get('/contact/register', contactController.register);
 
 module.exports = route;
