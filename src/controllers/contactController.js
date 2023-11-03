@@ -1,7 +1,8 @@
 const Contact = require('./../models/ContactModel');
 
-exports.index = (req, res) => {
-  res.render('contact');
+exports.index = async (req, res) => {
+  const contacts = await Contact.findContacts();
+  res.render('contact', { contacts });
 };
 
 exports.new = (req, res) => {
@@ -20,7 +21,7 @@ exports.register = async (req, res) => {
     }
 
     req.flash('success', 'Contato cadastrado com sucesso.');
-    req.session.save(() => res.redirect(`/contact/edit/${contact.contact._id}`));
+    req.session.save(() => res.redirect(`/contact`));
     return;
 
   } catch(e) {
@@ -52,10 +53,24 @@ exports.edit = async (req, res) => {
     }
 
     req.flash('success', 'Contato editado com sucesso.');
-    req.session.save(() => res.redirect(`/contact/edit/${contact.contact._id}`));
+    req.session.save(() => res.redirect(`/contact`));
     return;
   } catch(e) {
     console.log(e);
     res.render('error')
+  }
+}
+
+exports.delete = async (req, res) => {
+  try {
+    if(!req.params.id) return res.render('error');
+    const contact = await Contact.delete(req.params.id);
+    if(!contact) return res.render('error');
+
+    req.flash('success', 'Contato excluido com sucesso.');
+    req.session.save(() => res.redirect('back'));
+    return;
+  } catch(e) {
+    console.log(e);
   }
 }

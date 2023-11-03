@@ -1,0 +1,1 @@
+{"version":3,"file":"bundle.js","mappings":";;;;;AAAAA,OAAO,CAACC,GAAG,CAAC,eAAe,CAAC,C","sources":["webpack://agenda-contatos-web/./frontend/main.js"],"sourcesContent":["console.log('Hello, world!');"],"names":["console","log"],"sourceRoot":""}
